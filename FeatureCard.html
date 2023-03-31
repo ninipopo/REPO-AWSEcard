@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>聯邦銀行｜信用卡</title>
+    <link href="images/favicon.ico" rel="shortcut icon" />
+    <meta name="description" content="線上辦卡" />
+    <meta name="author" content="聯邦銀行">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="cssUB/form_Common.css">
+    <link rel="stylesheet" href="cssUB/OnLineApply_BK.css">
+    <!-- <script src="js/jquery.min.js" type="text/javascript"></script> -->
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="js/vue3.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-xl">
+                <a class="navbar-brand" href="index.htm"></a>
+            </div>
+        </nav>
+    </header>
+    <!--nav end-->
+    <!-- 主視覺 -->
+    <div class="shortKv">
+        <div class="fill-shortKv topimg-OnLineApply">
+            <div class="container-xl shortKv-title-4">
+                <h2>線上辦卡</h2>
+            </div>
+        </div>
+    </div>
+    <!-- 主要內容 -->
+    <section class="mainArea">
+        <div class="container-xl">
+            <div class="row justify-content-md-center">
+                <div class="formGroup">
+                    <ul class="formList formApply">
+                        <li class="col-12 align-items-start mb-0">
+                            <label for="">西元出生年月日</label>
+                            <div class="d-flex flex-column mb-1">
+                              <input
+                              v-model="applierInfo.birth"
+                              name="birth"
+                              id="birth" ref="birth"
+                              type="text" maxlength="8" placeholder="請輸入8位數字"
+                              class="formApply_form_control form-control"
+                              :class="{ 'is-invalid': errors['生日'] }"
+                              @keyup="applierInfo.birth = OnlyNumPress(applierInfo.birth)"
+                              @change="checkBirth(applierInfo.birth)"
+                              >
+                              <div class="d-flex text-center invalid-feedback birth my-1" >
+                                {{errors['生日']}}
+                              </div>
+                            </div>
+                        </li>
+                        <li class="col-12 align-items-start mb-0">
+                            <label for="">申請人手機號碼</label>
+                            <div class="d-flex flex-column mb-1">
+                              <input
+                              v-model="applierInfo.phone"
+                              name="phone"
+                              id="phone" ref="phone"
+                              type="text" maxlength="10" placeholder="限正卡持卡人"
+                              class="formApply_form_control form-control"
+                              :class="{ 'is-invalid': errors['手機'] }"
+                              @keyup="applierInfo.phone = OnlyNumPress(applierInfo.phone)"
+                              @change="checkPhone(applierInfo.phone)"
+                              >
+                              <div class="d-flex text-center invalid-feedback my-1" >
+                                {{errors['手機']}}
+                              </div>
+                            </div>
+                        </li>
+                        <li class="col-12">
+                            <label for=""></label>
+                            <span class="red_text">(請輸入申請LINE Bank之手機號碼)</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <button
+                    @click="applySubmit"
+                    class="btn btn-primary btn-lg mx-1"
+                    >
+                    確認
+                  </button>
+                </div>
+            </div>
+            <div class="text-center my-4">
+                <div class="text-start d-inline-block note_text">
+                    ※貼心提醒：<br>
+                    若您尚未申請LINE Bank帳戶或未透由LINE Bank申辦信用卡，請先至<a href="https://www.linebank.com.tw/" target="_blank">https://www.linebank.com.tw/</a>完成申請。<br>
+                    請準備好您的身份證與財力證明(如存摺、扣繳憑單、地價稅單和房屋稅單或建物權狀)，以加速辦卡流程。<a href="https://card.ubot.com.tw/eCard/activity/FinancialProof/index.htm" target="_blank"><u>上傳範例說明</u></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div ref="msgModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <span  style="font-size:1rem">{{errorMsg}}</span>
+            </div>
+            <div class="modal-footer" >
+                <div class="text-center" >
+                <button type="button" class="btn btn-primary btn-lg" data-bs-dismiss="modal" style="border-radius: 0.3rem;">關閉</button>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- 主要內容 END -->
+    <div class="footer">
+        <div class="serviceItems">
+            <div class="container-fluid">
+                <div class="contact">服務專線：<a href="tel:+886-2-25455168">(02)2545-5168</a>、<a href="tel:+886-7-226-9393">(07)226-9393</a>、拒絕接受行銷專線<a href="tel:+886-800-066-678">0800-066-678</a>、<a href="https://web.ubot.com.tw/call/notice_ecard202101.html" target="_blank">線上客服</a></div>
+                <div class="links">
+                    <a href="index.htm">回首頁</a>
+                    <a href="https://www.ubot.com.tw/" target="_blank">關於聯邦</a>
+                    <a href="http://61.219.193.132/eCard/activity/2020newHomepage_6/sendMsg.htm" target="_blank">留言板</a>
+                    <a href="https://www.ubot.com.tw/service_location" target="_blank">服務據點</a>
+                    <a href="Announcement.htm">重要訊息公告</a>
+                    <a href="CreditCard_info.htm">信用卡金融資訊</a>
+                    <a href="https://web.ubot.com.tw/call/notice_ecard.html" target="_blank">無障礙服務專區</a>
+                    <a href="Foreigner.htm">外籍人士專區 Foreigner Area</a>
+                    <a href="Map.htm">網站導覽</a>
+                    <a href="https://www.facebook.com/unionbankoftaiwan" target="_blank"><i class="fab fa-facebook-square"></i>聯邦粉絲團</a>
+                    <a href="https://liff.line.me/1645278921-kWRPP32q?accountId=ubot" target="_blank"><i class="fab fa-line"></i>LINE官方帳號</a>
+                </div>
+            </div>
+        </div>
+        <div class="information">
+            <div class="container-fluid">
+                <div class="row info">
+                    <div class="infoLeft col-12 col-md-4 offset-md-2">謹慎理財 信用至上</div>
+                    <div class="infoRight col-12 col-md-6 ">
+                        <ul class="text-left">
+                            <li>循環利率：5%~15%</li>
+                            <li>循環利率之基準日為104年9月1日</li>
+                            <li>預借現金手續費：預借金額x3.5%+100元</li>
+                            <li>其他費用請至卡友服務(各項費用計費說明)查詢</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="copyright">&copy; 聯邦銀行 All Rights Reserved.</div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        applierInfo: {
+        // ?使用者輸入的出生年月日
+        birth:'',
+        phone: ''
+      },
+      errors: {
+        '生日' : '',
+        '手機' : ''
+      },
+      errorMsg: '請填寫正確欄位',
+      MsgModal: '' // messageModal
+      }
+    },
+    methods: {
+        //* ==== 1. 只可輸入數字 ====
+      OnlyNumPress (value) {
+        return value.replace(/[^\d]+/g, '')
+      },
+      //* ==== 2. 手機號碼驗證 ====
+      checkPhone (value) {
+        const Rule = /^09[0-9]{8}$/
+        if (Rule.test(value)) {
+          this.errors['手機'] = ''
+          return
+        }
+        this.errors['手機'] = '請輸入正確的手機格式'
+        // return '請輸入正確的手機格式'
+      },
+      //* ==== 3. 西元驗證 ====
+      checkBirth (code) {
+        const idRule = /^\d{8}$/
+        if (idRule.test(code)) {
+          this.errors['生日'] = ''
+          return
+        }
+        this.errors['生日'] = '請輸入8位數字'
+        // return '請輸入8位數字'
+      },
+      async applySubmit () {
+        const result = []
+        await Object.values(this.errors).forEach(error => {
+          if (error) {
+            result.push(error)
+          }
+        })
+        // console.log(result.length);
+        if (result.length === 0) {
+          if (this.applierInfo.birth && this.applierInfo.phone) {
+            // ?測站網址要更換
+            this.errorMsg = `親愛的客戶您好：感謝您申辦LINE Bank聯名卡，您的案件已在審核中，請您耐心等候，如有疑問請洽聯邦銀行客服查詢。`
+            this.MsgModal.show()
+            setTimeout(() => {
+              location.assign("https://ecard.yesgogogo.com/")
+            }, 1500);
+            return
+          }
+          if (!this.applierInfo.birth) {
+            this.MsgModal.show()
+            this.errors['生日'] = '請輸入8位數字'
+            if (!this.applierInfo.phone){
+              this.errors['手機'] = '請輸入正確的手機格式'
+              return
+            }
+            return
+          } else if (!this.applierInfo.phone){
+            this.MsgModal.show()
+            this.errors['手機'] = '請輸入正確的手機格式'
+            if (!this.applierInfo.phone){
+              this.errors['生日'] = '請輸入8位數字'
+              return
+            }
+            return
+          } else {
+            this.MsgModal.show()
+            this.errors['生日'] = '請輸入8位數字'
+            this.errors['手機'] = '請輸入正確的手機格式'
+            return
+          }
+        }
+        if (result.length !== 0) {
+          if (!this.applierInfo.birth) {
+            this.MsgModal.show()
+            this.errors['生日'] = '請輸入8位數字'
+            if (!this.applierInfo.phone){
+              this.errors['手機'] = '請輸入正確的手機格式'
+              return
+            }
+            return
+          } else if (!this.applierInfo.phone){
+            this.MsgModal.show()
+            this.errors['手機'] = '請輸入正確的手機格式'
+            if (!this.applierInfo.phone){
+              this.errors['生日'] = '請輸入8位數字'
+              return
+            }
+            return
+          } else {
+            this.MsgModal.show()
+            this.errors['生日'] = '請輸入8位數字'
+            this.errors['手機'] = '請輸入正確的手機格式'
+          }
+        }
+      }
+    },
+    mounted () {
+      this.MsgModal = new bootstrap.Modal(this.$refs.msgModal, { backdrop: 'static' })
+    }
+  }).mount('#app')
+</script>
+
+<script>
+  let url = window.location.href;
+    if (url.indexOf('?notice1') != -1) {
+    let noticeModal = new bootstrap.Modal(document.getElementById('noticeModal'), {
+        keyboard: false
+    })
+    noticeModal.show()
+    }
+    if (url.indexOf('?notice2') != -1) {
+    let noticeModal = new bootstrap.Modal(document.getElementById('noticeModal_2'), {
+        keyboard: false
+    })
+    noticeModal.show()
+    }
+    if (url.indexOf('?notice3') != -1) {
+    let noticeModal = new bootstrap.Modal(document.getElementById('noticeModal_3'), {
+        keyboard: false
+    })
+    noticeModal.show()
+    }
+    if (url.indexOf('?notice4') != -1) {
+    let noticeModal = new bootstrap.Modal(document.getElementById('noticeModal_4'), {
+        keyboard: false
+    })
+    noticeModal.show()
+    }
+</script>
+
+<style>
+ .form-control.is-invalid {
+    background-image: none;
+    padding-right: 0;
+  }
+  .form-select.is-invalid:not([multiple]):not([size]){
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    padding-right: 0.3rem;
+  }
+  .card-body{
+    padding: 1rem 1rem;
+  }
+  .form-check-input.is-invalid{
+    border-color: #dc3545 !important;
+  }
+  input.checkimg[type="checkbox"].is-invalid {
+    border-color: #db0031 !important;
+  }
+  div.is-invalid {
+    color: #db0031 !important;
+    border-color: #db0031 !important;
+  }
+  .crop-width {
+    max-width: 400px !important;
+    max-height: 200px !important;
+    height: auto;
+  }
+  .crop-test {
+    max-width: 420px !important;
+    max-height: 300px !important;
+    height: auto;
+  }
+  .form-text{
+    margin-top: 0;
+  }
+  .modal-header .close{
+    padding: 1rem 1rem;
+    margin: -1rem -1rem -1rem auto;
+  }
+  button.close{
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .close{
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+  }
+  .close:hover {
+    opacity: .75;
+  }
+  .btn.btn-primary:hover{
+    background-color:#707070!important;
+  }
+</style>

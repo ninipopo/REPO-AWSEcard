@@ -1,0 +1,922 @@
+    @charset "utf-8";
+    /****************** 基本 ******************/
+
+    * {
+        font-family: "微軟正黑體", "Microsoft JhengHei", Arial, Geneva, sans-serif;
+    }
+    body {
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.8;
+        color: #323232;
+        background-color: #fff;
+        height: 100%;
+        position: relative;
+    }
+    a {
+        color: #009999;
+        text-decoration: none;
+    }
+    a:hover,
+    a:active,
+    a:focus,
+    a:visited {
+        color: #009999;
+        outline: none;
+        text-decoration: none;
+    }
+    .red_text {
+        color: #d60000;
+    }
+    .DarkRed_text {
+        color: #cc0e43;
+    }
+    .blue_text {
+        color: #115b83;
+    }
+    /*湖水綠*/
+    .Green_text {
+        color: #097171;
+    }
+    /*每頁下方的按鈕ex:下一步、重填 */
+    .button_group {
+        border-top: 1px solid #afafaf;
+        padding-top: 15px;
+    }
+    .btn.btn-primary {
+        background: #009999;
+        color: #fff;
+        border: none !important;
+        border: 2px solid transparent !important;
+        display: inline-block;
+        margin-top: 5px;
+        border-radius: 0px;
+    }    
+    .btn.btn-primary:hover,
+    .btn.btn-primary:active,
+    .btn.btn-primary:focus {
+        background: #393e46 !important;
+        color: #fff;
+        outline: none !important;
+    }
+    @media screen and (max-width: 576px) {
+        .btn.btn-primary {
+            padding-top: 10px;
+            padding-right: 8px;
+            padding-left: 8px;
+            padding-bottom: 10px;
+            font-size: 16px;
+        }
+    }
+    /*//每頁下方的按鈕ex:下一步、重填 */
+
+    /*各項事業費用代扣的新增事業費用代扣按鈕*/
+    .btn.btn-red {
+        background: #af1212;
+        color: #fff;
+        border: 2px solid transparent !important;
+        display: inline-block;
+        margin-top: 5px;
+        border-radius: 0px;
+    }
+    @media screen and (max-width: 576px) {
+        .btn.btn-red  {
+            padding-top: 10px;
+            padding-right: 8px;
+            padding-left: 8px;
+            padding-bottom: 10px;
+            font-size: 16px;
+        }
+    }
+    
+    /* 版面配置 Start */
+    .header {
+        height: 20px;
+    }
+
+    /* 聯邦LOGO Start */
+    .navbar-brand {
+        padding-right: 0;
+    }
+
+    .navbar {
+        padding: 0;
+    }
+
+    .navbar .navbar-brand {
+        margin-right: 0px;
+        margin-left: 20px;
+        width: 180px;
+        height: 60px;
+        background: url(../images/UBOT_logo_180x26.png) no-repeat 0 50%;
+    }
+
+    /* 聯邦LOGO End */
+    /* footer Start */
+    .footer {
+        font-size: 15px;
+    }
+
+    .footer .securityNotice {
+
+        /* color:#FFFFFF; */
+        /* color:#4C4C4C; */
+        color: #666;
+        text-align: center;
+        /* background-color: #1BBBBB; */
+        /* background-color: #D0D0D0; */
+        background-color: #fff;
+        padding: 10px 10px 20px;
+    }
+
+    .footer .serviceItems {
+        color: #4C4C4C;
+        text-align: center;
+        background-color: #D0D0D0;
+        padding: 10px;
+    }
+
+    .footer .serviceItems .links ul {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        margin-bottom: 0;
+    }
+
+    .footer .links a:after {
+        content: "｜";
+    }
+
+    .footer .links a:last-child:after {
+        content: "";
+    }
+
+    .footer .serviceItems a {
+        color: #4C4C4C;
+    }
+
+    .footer .information {
+        color: #FFFFFF;
+        background-color: #575757;
+        padding: 10px;
+    }
+
+    .footer .information .infoLeft {
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer .information .infoRight {
+        font-size: 12px;
+    }
+
+    @media all and (max-width: 576px) {
+        .footer .information .infoRight {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .footer .information .copyright {
+        text-align: center;
+    }
+
+    /* footer End */
+
+    /*--主要內容 mainArea--*/
+    .mainArea {
+        padding: 50px 10px 30px;
+    }
+    .mainArea p{   
+        margin-bottom: 0px;
+    }
+    /*--//主要內容 mainArea--*/
+
+    /*--------------表單頁短的主視覺(主視覺，英文為key vision)--------------*/
+    /*X-Small devices（直向手機，小於 576px）*/
+    .shortKv {
+        height: 180px;
+    }
+
+    .fill-shortKv {
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    /*Small devices （橫向手機，576px 及以上）*/
+    @media screen and (min-width: 576px) {}
+
+    /*Medium devices (平板電腦，768px 及以上）*/
+    @media screen and (min-width: 768px) {
+        .shortKv {
+            height: 225px;
+        }
+    }
+    /*Large devices （桌機，992px 及以上）*/
+    @media screen and (min-width: 992px) {
+        .shortKv {
+            height: 250px;
+        }
+    }
+    /*X-Large devices （大型桌機，1200 像素及以上）*/
+    @media screen and (min-width: 1200px) {
+        .shortKv {
+            height: 300px;
+        }
+    }
+    /*XX-Large devices（更大的桌機，1400 像素及以上）*/
+    @media screen and (min-width: 1400px) {
+        ...
+    }
+    /*----------------------------主視覺----------------------------------*/    
+    /*--------------------------查詢結果+謝謝您---------------------------------*/      
+    .result_message {
+        padding: 15px 50px 30px;
+        font-size: 16px;
+        background-color: #ffffff;
+        color: #434343;
+    }
+    .result_message p {
+        font-size: 18px;
+        text-align: left;
+    }
+    .tks_message_end:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 30px;
+        background-image: url("../images/form/tks_message_line.gif");
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    @media screen and (max-width: 768px) {
+        .result_message {
+            padding: 0px 0px;
+        }
+    }
+    /*--------------------------//查詢結果+謝謝您---------------------------------*/    
+    /*------------------------------登入表單------------------------------------*/
+    .formList {    
+        display: flex;     
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0px;
+    }
+
+    .formList li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .formList label {
+        font-size: 1.25rem;
+        text-align: right;
+        margin-right: .75rem;
+        margin-bottom: 0;
+        color: #009999;
+        font-weight: bold;
+        min-width: 6.5rem;
+    }
+
+    .formList select {
+        margin-left: 5px;
+        margin-right: 5px;
+        min-width: 60px;
+    }
+
+    .formList select:first-of-type {
+        margin-left: 0;
+        min-width: 85px;
+        max-width: 192px;
+    }
+
+    .form-control {
+        color: #333333;
+        font-size: 1.25rem;
+        border-radius: 0;
+        border: 1px solid #a9a9a9;
+        padding: 0.37rem 0.3rem;
+        width: auto;
+    }
+
+    .formList .form-group > .form-control {
+        min-width: 18.3rem;
+    }
+  
+    .formList .label {
+        min-width: 12rem; /*--訂單編號／申請序號--*/
+    }
+   
+    .formList .PositiveCardNo_label {
+        min-width: 13rem; /*--正卡持卡人信用卡卡號--*/
+    } 
+
+   .formList .ValidCardNo_label {
+    min-width: 14rem; /*--本行信用卡任一有效卡號--*/
+   }
+
+    @media screen and (max-width: 576px) {
+        .formList li {
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+        .formList label {
+            width: 100%;
+            text-align: left;
+            margin-right: 0rem;
+        }
+        .formList .label {
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    /*--圖形驗證碼--*/
+    .formList .inCaptcha .form-control {
+        min-width: 5rem;
+        max-width: 10.8rem;
+    }
+
+    .formList .id_code {
+        max-width: 120px;
+        height: 44px;
+        padding-left: 3px;
+        margin: 0px;
+    }
+    @media screen and (max-width: 576px) {
+        .formList .inCaptcha label {
+            width: 100%;
+        }
+        .formList .inCaptcha .label {
+            width: 100%;
+        }
+    }
+    /*--//圖形驗證碼--*/
+
+    /*--表單年月日--*/
+    .formList .inDate {        
+        display: flex;      
+        justify-content: flex-start;       
+        align-items: center;
+        min-width: 18.3rem;
+    }
+    /*--//表單年月日--*/
+
+    /*--信用卡卡號--*/
+    .formList .cardNumber {
+        margin: 0 2px 0 0;
+        max-width: 4.12rem;
+    }
+
+    .formList .cardDash {
+        width: 5px;
+        height: 2px;
+        background-color: #009999;
+        margin-right: 2px;
+    }
+    /*--//信用卡卡號--*/
+
+    /*--信用卡 效期--*/
+    .formList .cardValidity {
+        margin-right: 5px;
+        min-width: 119px !important;
+    }
+    /*--信用卡 效期--*/
+/*----------------------------//登入表單----------------------------------*/
+/*-------------------------opt簡訊驗證碼----------------------------------*/    
+.formList .inOpt .form-control {
+    width: 9rem;
+}
+
+.formList .inOpt button {
+    display: inline-block;
+    text-align: center;
+    background-color: #1f6aa0;
+    border-radius: 5px;
+    margin: 10px;
+    width: 130px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    color: #ffffff;
+    border: 0px;
+}
+
+.formList .inOpt button:focus {
+    outline: 0px
+}
+
+.formList .inOpt button:hover {
+    background-color: #145686;
+}
+.formList .inOpt .countdown {
+    font-size: 15px;
+    color: #4C4C4C;
+    font-weight: 400;
+}
+@media screen and (max-width: 576px) {
+    /* .formList .inOpt label {
+        width: 100%;
+    } */         
+}
+/*-------------------------//opt簡訊驗證碼--------------------------------*/
+/*----------------------------雙排表單------------------------------------*/
+    .formList-even {        
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+    }
+
+    .formList-even li {       
+        display: flex;
+        margin-bottom: 2rem;
+        flex-direction: column;
+        padding-left: 40px;
+        padding-right: 90px;
+    }
+
+    .formList-even label {
+        font-size: 1.25rem;
+        text-align: left;
+        margin-right: .75rem;
+        margin-bottom: 0;
+        color: #009999;
+        font-weight: bold;
+    }
+    .formList-even input[type=checkbox] {
+        width: 1.2rem;height: 1.2rem
+    }
+
+    .formList-even .label {
+        min-width: 16rem;
+        font-size: 1.25rem;
+        text-align: right;
+        margin-right: .75rem;
+        margin-bottom: 0;
+        color: #009999;
+        font-weight: bold;
+    }
+
+    .formList-even .form-control {
+        padding: .37rem .3rem;
+        width: 100%;
+    }
+    .formList-even .form_Apply_txt {
+        font-size: 20px;
+        line-height: 40px;
+        letter-spacing: 2px;
+        color: #6c757d;
+    }
+    .formList-even
+    .formList-even .inOpt .form-control {
+        min-width: 5rem;
+        max-width: 9rem;
+    }
+    
+    .formList-even .inOpt button {
+        display: inline-block;
+        text-align: center;
+        background-color: #1f6aa0;
+        border-radius: 5px;
+        margin: 10px;
+        width: 130px;
+        height: 44px;
+        line-height: 44px;
+        font-size: 16px;
+        color: #ffffff;
+        border: 0px;
+    }
+    
+    .formList-even .inOpt button:focus {
+        outline: 0px
+    }
+    
+    .formList-even .inOpt button:hover {
+        background-color: #145686;
+    }
+    @media screen and (max-width: 992px) {
+        .formList-even li {
+            padding-left: 0px;
+            padding-right: 10px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .formList-even {
+            padding-left: 0px;
+        }
+
+        .formList-even li {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding-left: 0px;
+            padding-right: 5px;
+        }
+
+        .formList-even li label {
+            text-align: left;
+        }
+
+        .formList-even .label {
+            text-align: left;
+            width: 100%;
+        }      
+    }
+/*-------------------------//雙排表單-------------------------------------*/    
+/*---------------------------確認申請資料---------------------------------*/    
+.container_Confirm {    
+    background-color: #f3f3f3;
+    padding-top: 45px;
+    margin-top: -83px;
+    padding-bottom: 1.8rem;
+}
+
+.container_Confirm .label_confirm {
+    min-width: 16rem;
+    font-size: 1.25rem;
+    text-align: left;
+    letter-spacing: 3px;
+    margin-right: .75rem;
+    margin-left: 2rem;
+    margin-bottom: 0;
+    color: #009999;
+    font-weight: bold;
+}
+
+.container_Confirm .nostar {
+    margin-left: 0.77rem;
+}
+
+.container_Confirm .input-data_confirm {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    line-height: 34px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.container_Confirm .input-data_confirm p {
+    display: inline-block;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: #6c757d;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 0em;
+}
+.container_Confirm .input-data_confirm p span {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+@media screen and (max-width: 767px) {
+    .container_Confirm {       
+        margin-top: -63px;
+    }
+    .container_Confirm .label_confirm {
+        letter-spacing: 0px;
+        width: 100%;
+    }
+    .container_Confirm .nostar {
+        margin-left: 0rem;
+    }
+}
+@media screen and (max-width: 576px) {
+    .container_Confirm .label_confirm {
+        margin-left: .25rem;  
+    }    
+}
+ /*--親屬關係--*/    
+ .form-group.label_family {
+    align-items: flex-start;
+}
+
+.family_group {
+    width: 100%;
+}
+
+.family_group_item+.family_group_item {
+    margin-top: 10px;
+}
+
+.family_group_item span {
+    color: #6c757d;
+    right: 20px;
+    bottom: 20px;
+    font-size: 18px;
+    margin-left: 0.77rem;
+    line-height: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .form-group.label_family {
+        align-items: center;
+    }
+    .family_group_item span {
+        margin-left: 0rem;
+    }
+}
+/*--//親屬關係--*/
+/*---------------------------//確認申請資料---------------------------------*/
+/*--input下的說明文字--*/
+    
+.notice-text {
+    display: inline-block;
+    color: #097171;
+    right: 20px;
+    bottom: 20px;
+    font-size: 14px;
+    line-height: 3;
+}    
+@media screen and (max-width: 768px) {
+    .notice-text {
+        left: 20px;
+        bottom: -20px;
+        font-size: 13px;
+        line-height: 2;
+        }
+    }
+/*--//input下的說明文字--*/
+/*--表單中按鈕--*/    
+.blue_button {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    min-width: 5em;
+    padding: 2px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-image: linear-gradient(to top, #4f84ba, #366ba1);
+    border: 1px solid #366ba1;
+    border-radius: 8px;
+    box-shadow: 0 4px #89898980;
+}
+
+.blue_button:hover {
+    color: #ffffff;
+    background-image: linear-gradient(to top, #2063a7, #014589);
+}
+
+.blue_button:focus {
+    outline: 0px;
+}
+@media screen and (max-width: 768px) {
+    .blue_button {
+        font-size: 14px;
+        margin: 0 0 0 5px;
+    }
+}
+/*--//表單中按鈕--*/
+/*--rwd-table data-title=四個中文字--*/
+@media screen and (max-width: 768px) {
+    .rwdTable thead {
+        display: none;
+    }
+    .rwdTable tbody td {
+        display: block;
+        text-align: left;
+        padding: 0px 3px 3px;
+        padding-left: 5.8em;
+        text-indent: -5em;
+    }
+    .rwdTable tbody td::before {
+        content: attr(data-title)'：';     
+        padding-right: 6px;
+        width: 5em;
+        display: inline-block;
+        text-align: right;
+    }
+    .rwdTable tbody td:first-child {
+        background-color: #009999;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 8px;
+        padding-left: 0;
+        text-indent: 0;
+        margin-bottom: 0.25rem;
+    }
+    .rwdTable tbody td:first-child::before {
+        content: '';
+        color: #FFFFFF;
+        width: auto;
+    }
+    .rwdTable tbody td:last-child {
+        margin-bottom: 0.25rem;
+    }  
+}
+/*--//rwd-table--*/
+/*--------------------------------縮排------------------------------------*/
+/*--縮排數字(1.)--*/
+.indentNote_OneText {
+    font-size: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: left;
+    line-height: 2.3em;
+}
+
+.indentNote_OneText p {
+    font-size: 15px;
+    text-align: left;
+    padding-left: 15px;
+    text-indent: -15px;
+    margin-bottom: 0px;
+}
+
+/*-- 縮排(註1.)--*/
+.indentNote_TwoText {
+    font-size: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    text-align: left;
+    line-height: 2.3em;
+}
+
+.indentNote_TwoText p {
+    font-size: 15px;
+    text-align: left;
+    padding-left: 40px;
+    text-indent: -40px;
+    margin-bottom: 0px;
+}
+
+/*--------------------------------//縮排------------------------------------*/
+/*--注意事項--*/
+.note_text {
+    font-size: 15px;
+    list-style-type: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+/*--//注意事項--*/
+
+/*--步驟--*/
+.step {
+    width: 100%;
+    margin: 6px auto 40px;
+    display: flex;
+    list-style: none;
+    padding-left: 0px;
+    }
+.step li {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+.step li .counter_step {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    line-height: 52px;
+    font-size: 22px;
+    border-width: 4px;
+    text-align: center;
+    border: 3px solid #cccccc;
+    background: #cccccc;
+    color: #ffffff;
+    margin: 0 auto;
+    }
+.step li.completed .counter_step {
+    border-color: #009999;
+    background: #009999;
+}
+.step li.active .counter_step {
+    color: #009999;
+    border-color: #009999;
+    background: #ffffff;
+}
+.step li span {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #33333F;
+    font-weight: bold;
+    line-height: 1;
+     text-align: center;
+}
+.step li:not(:first-child)::before {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #009999;
+    position: absolute;
+    right: 50%;
+    top: 31px;
+    z-index: -1;
+    }
+.step li.active~ ::before {
+    background-color: #cccccc;
+    }
+@media screen and (max-width: 768px) {
+    .step li:not(.active) {
+        display: none;
+    }
+    .step li:first-child::before {
+        content: '';
+        width: 100%;
+        height: 4px;
+        background: #cccccc;
+        position: absolute;
+        right: 0;
+        top: 31px;
+        z-index: -1;
+    }
+    .step li:not(:first-child)::before {
+        right: 0;
+        background-color: #cccccc;
+    }
+}
+/*--//步驟--*/
+
+/*--資料小標題--*/
+.dataTitle {
+    position: relative;
+    margin-bottom: 45PX;
+}
+.dataTitle h3 {
+    color: #009999;
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #e4e2e2;
+}
+.dataTitle h3 span {
+    padding-bottom: 8px;
+    border-bottom: 3px solid #00859a;
+}
+@media screen and (max-width: 768px) {
+    .dataTitle {
+        margin-bottom: 25PX;
+    }
+}
+/*--//資料小標題--*/
+
+/*--有星號必填的資料小標題--*/
+.Star-red-letter {
+    position: absolute;
+    display: inline-block;
+    color: #ff0000;
+    right: 20px;
+    bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+@media screen and (max-width: 768px) {
+    .Star-red-letter {
+        position: absolute;
+        display: inline-block;
+        color: #ff0000;
+        left: 20px;
+        bottom: -20px;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .dataTitle.Star-dataTitle {
+        margin-bottom: 45PX
+    }
+}
+/*--//有星號必填的資料小標題--*/
+
+/*--條款詳閱並同意--*/
+.terms-group {
+    margin-bottom: 16px!important;
+}
+.terms-group .terms {
+    padding-bottom: 16px;
+}
+.terms-group .terms input {
+    margin-top: 2px;
+}
+.terms-group .terms label {
+    font-size: 16px;
+    line-height: 25px;
+    padding-left: 32px;
+}
+/*--條款詳閱並同意--*/
+/*--modal右上方關閉按鈕--*/
+.modal .btn-close {
+    width: 35px;
+    height: 30px;
+    padding-top: 0;
+    margin-top: -10px;
+    background: none;
+  }
+  .modal .btn-close:focus{
+    box-shadow: none;
+  }
+  /*--//modal--*/
